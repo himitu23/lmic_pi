@@ -11,6 +11,7 @@
 
 #include <wiringPi.h>
 #include "lmic.h"
+#include <stdlib.h> //for exit
 
 // ---------------------------------------- 
 // Registers Mapping
@@ -509,7 +510,11 @@ static void txlora () {
 
 // start transmitter (buf=LMIC.frame, len=LMIC.dataLen)
 static void starttx () {
-    ASSERT( (readReg(RegOpMode) & OPMODE_MASK) == OPMODE_SLEEP );
+    //ASSERT( (readReg(RegOpMode) & OPMODE_MASK) == OPMODE_SLEEP );
+    if((readReg(RegOpMode) & OPMODE_MASK) != OPMODE_SLEEP){
+        puts("Radio Error occured. Then restart.");
+        exit(0);
+    }
     if(getSf(LMIC.rps) == FSK) { // FSK modem
         txfsk();
     } else { // LoRa modem
@@ -626,7 +631,11 @@ static void rxfsk (u1_t rxmode) {
 }
 
 static void startrx (u1_t rxmode) {
-    ASSERT( (readReg(RegOpMode) & OPMODE_MASK) == OPMODE_SLEEP );
+    //ASSERT( (readReg(RegOpMode) & OPMODE_MASK) == OPMODE_SLEEP );
+    if((readReg(RegOpMode) & OPMODE_MASK) != OPMODE_SLEEP){
+        puts("Radio Error occured. Then please restart.");
+        exit(0);
+    }
     if(getSf(LMIC.rps) == FSK) { // FSK modem
         rxfsk(rxmode);
     } else { // LoRa modem

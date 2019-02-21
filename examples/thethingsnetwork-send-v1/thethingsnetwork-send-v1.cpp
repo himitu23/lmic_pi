@@ -21,7 +21,8 @@
  * for SX1272 and RFM92, but change to:
  *   #define CFG_sx1276_radio 1
  * for SX1276 and RFM95.
- *
+ * 
+ * modified himitu23; tokina23centcircumflex@gmail.com 2019/02/21
  *******************************************************************************/
 
 #include <stdio.h>

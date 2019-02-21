@@ -68,20 +68,21 @@ enum { DR_PAGE = DR_PAGE_EU868 };
 //  g1 :   1%  14dBm  
 //  g2 : 0.1%  14dBm  
 //  g3 :  10%  27dBm  
+/*modified by himitu23 for AS923 - ALL Frequency are fixed in 923200000 only for ABP Activation!!*/
 //                 freq             band     datarates
-enum { EU868_F1 = 868100000,      // g1   SF7-12           used during join
-       EU868_F2 = 868300000,      // g1   SF7-12 SF7/250   ditto
-       EU868_F3 = 868500000,      // g1   SF7-12           ditto
-       EU868_F4 = 867100000,      // g2   SF7-12
-       EU868_F5 = 867300000,      // g2   SF7-12
-       EU868_F6 = 868800000,      // g2   FSK
-       EU868_F7 = 867500000,      // g2   SF7-12  
-       EU868_F8 = 867700000,      // g2   SF7-12   
-       EU868_F9 = 867900000,      // g2   SF7-12   
-       EU868_DN = 869525000,      // g3   Downlink
+enum { EU868_F1 = 923200000,      // g1   SF7-12           used during join 
+       EU868_F2 = 923200000,      // g1   SF7-12 SF7/250   ditto
+       EU868_F3 = 923200000,      // g1   SF7-12           ditto
+       EU868_F4 = 923200000,      // g2   SF7-12
+       EU868_F5 = 923200000,      // g2   SF7-12
+       EU868_F6 = 923200000,      // g2   FSK
+       EU868_F7 = 923200000,      // g2   SF7-12  
+       EU868_F8 = 923200000,      // g2   SF7-12   
+       EU868_F9 = 923200000,      // g2   SF7-12   
+       EU868_DN = 923400000,      // g3   Downlink
 };
-enum { EU868_FREQ_MIN = 863000000,
-       EU868_FREQ_MAX = 870000000 };
+enum { EU868_FREQ_MIN = 920600000,
+       EU868_FREQ_MAX = 928000000 };
 
 enum { CHNL_PING         = 10 };
 enum { FREQ_PING         = EU868_DN };  // default ping freq
@@ -122,7 +123,7 @@ enum { US915_125kHz_UPFBASE = 923200000,
        US915_500kHz_DNFBASE = 923200000,
        US915_500kHz_DNFSTEP =    600000
 };
-enum { US915_FREQ_MIN = 920000000,
+enum { US915_FREQ_MIN = 910000000,
        US915_FREQ_MAX = 926000000 };
 
 enum { CHNL_PING         = 0 }; // used only for default init of state (follows beacon - rotating)
